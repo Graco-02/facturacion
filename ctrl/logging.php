@@ -25,7 +25,7 @@ function get_validar_usuario(){
         }else{
             $sql = "SELECT  user.id as userid,user.usuario as usuario,user.clave as clave,
             dp.nombres as nombres,dp.apellidos as apellidos,dp.url_imagen as url_img,
-            dp.tipoid as tipoid, dp.identificacion as identificacion,dp.direccion as direccion
+            dp.tipoid as tipoid, dp.identificacion as identificacion,dp.direccion as direccion, dp.id as id_personal
             FROM usuarios user , datos_personales dp
             where user.usuario='$user_name' AND user.estado = 0 
             AND user.id_data_personal = dp.id"; 
@@ -41,6 +41,7 @@ function get_validar_usuario(){
                         $_SESSION['usuario_logeado_tipoid'] = $row["tipoid"];
                         $_SESSION['usuario_logeado_identificacion'] = $row["identificacion"];
                         $_SESSION['usuario_logeado_direccion'] = $row["direccion"];
+                        $_SESSION['id_personal'] = $row["id_personal"];
                         return true;
                     } else {
                         $validacion=FALSE; 

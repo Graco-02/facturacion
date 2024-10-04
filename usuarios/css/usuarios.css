@@ -1,0 +1,64 @@
+.flex_normal_no_justify{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+
+.img_usuario{
+    
+}
+
+
+
+.formulario{
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.lb_form{
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.input_form_text{
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form_2_componens{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.heig_textarea{
+    height: 7rem;
+}
+
+.bt_form{
+    text-transform: uppercase;
+    color: black;
+    background-color: yellow;
+    font-weight: 700;
+}
+
+.bt_form:hover{
+    cursor: pointer;
+    background-color: lightyellow;
+    transition: 1s;
+}
+
+
+@media (max-width:600px) {
+    .flex_normal_no_justify{
+        display: flex;
+       flex-direction: column;
+    }
+}

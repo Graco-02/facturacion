@@ -1,0 +1,171 @@
+:root{
+    --color_primario:rgb(237, 241, 157);
+    --color_secundario:rgb(217, 213, 12);
+    --color_menu:rgb(129, 127, 5);
+    --color_menu_2:rgb(89, 88, 4);
+}
+
+a{
+    text-decoration: none;
+    color: var(--color_secundario);
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+
+header{
+    background-color: var(--color_secundario);
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+header span{
+    text-transform: capitalize;
+    font-weight: 700;
+    float: left;
+}
+
+.iconos{
+    width:  2.5rem;
+    height: 2.5rem;
+}
+
+.iconos_2{
+    width:  5rem;
+    height: 5rem;
+}
+
+.iconos_3{
+    width:  2rem;
+    height: 2rem;
+}
+
+
+#user_options{
+   float: right;
+   position: relative;
+}
+
+#logo_user:hover{
+    cursor: pointer;
+}
+
+#menu_usuario{
+    position: absolute;
+    padding: 4rem;
+    background-color: var(--color_secundario);
+    left: -300%;
+    height: auto;
+    width: auto;
+    flex-direction: column;
+}
+
+.cerrado{
+    display: none;
+    transition: 1.5s;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.flex_centrado_colum{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: 1s;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    height: 100%;
+}
+
+.menu_p{
+    background-color:var(--color_menu);
+    display:flex;
+    flex-direction: column;
+}
+
+/*css para listado de opciones menu principal*/
+
+.opcion_menu_p{
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    width: 100%;
+
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+
+.opcion_menu_p a{
+    text-decoration: none;
+    cursor: pointer;
+    color: yellow;
+    font-size: 0.7rem;
+}
+
+.opcion_menu_p a:hover{
+    color: rgb(255, 255, 255);
+    transition: 1s;
+}
+
+.clas_relative{
+    position: relative;
+}
+
+#contenedor_opciones_inventario{
+    position: absolute;
+    left: 100%;
+    background-color: var(--color_menu);
+    transition: 1s;
+    font-size: 0.8rem;
+}
+
+.opciones_inventario{
+    margin-right: 1rem;
+    gap: 1rem;
+}
+
+.lista_opciones_menu_p{
+    width: 100%;
+}
+
+.flex_colum{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.bacg_p{
+    background-color: var(--color_menu_2);
+}
+
+@media (max-width:1020px) {
+
+ }
