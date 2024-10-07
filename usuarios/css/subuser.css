@@ -1,0 +1,15 @@
+.contenedor_main{
+    width: 100%;
+}
+
+.width_100{
+    width: 100%;
+}
+
+thead{
+    text-transform: uppercase;
+}
+
+tr{
+    text-align: center;
+}

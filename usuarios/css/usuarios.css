@@ -10,7 +10,11 @@
     
 }
 
-
+#contenedor_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .formulario{
     width: 100%;
@@ -38,6 +42,11 @@
     align-items: center;
 }
 
+
+.flex_direccion_colum{
+    flex-direction: column;
+}
+
 .heig_textarea{
     height: 7rem;
 }
@@ -56,9 +65,25 @@
 }
 
 
+.bck_color{
+    background-color: var(--color_primario);
+}
+
+.border_layout{
+    border-radius: 25px;
+}
+
+
+#logo_user_form{
+    max-width: 10rem;
+    background-size: cover;
+    border-radius: 50%;
+}
+
 @media (max-width:600px) {
     .flex_normal_no_justify{
         display: flex;
        flex-direction: column;
     }
+
 }

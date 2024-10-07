@@ -17,6 +17,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="../js/inicio.js"></script>
     <script src="js/usuarios.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
@@ -36,23 +37,23 @@
         <section id="menu_principal" class="menu_p">
                 <div class="opcion_menu_p">
                     <img src="../imagenes/iconos/account-cog.png" alt="" class="iconos" id="logo_user">
-                    <a href=""><span>usuarios</span></a>
+                    <a href="subusuarios.php" class="enlaces_menu"><span>usuarios</span></a>
                 </div>
 
                 <div class="opcion_menu_p">
                     <img src="../imagenes/iconos/account-circle.png" alt="" class="iconos" id="logo_user">
-                    <a href=""><span>clientes</span></a>
+                    <a href="" class="enlaces_menu"><span>clientes</span></a>
                 </div>
 
                 <div class="opcion_menu_p">
                     <img src="../imagenes/iconos/NCF.png" alt="" class="iconos" id="logo_user">
-                    <a href=""><span>comprobantes</span></a>
+                    <a href="" class="enlaces_menu"><span>comprobantes</span></a>
                 </div>
 
                 <div class="opcion_menu_p flex_centrado_colum clas_relative">
                     <div class="flex">
                         <img src="../imagenes/iconos/inventario.png" alt="" class="iconos" id="logo_user" onclick="set_cerrar_opciones_inventario();">
-                        <a href="#" onclick="set_cerrar_opciones_inventario();"><span>inventario</span></a>
+                        <a href="#" onclick="set_cerrar_opciones_inventario();" class="enlaces_menu"><span>inventario</span></a>
 
                     </div>
                     <div class="cerrado bacg_p"  id="contenedor_opciones_inventario">
@@ -67,22 +68,25 @@
 
                 <div class="opcion_menu_p clas_relative">
                     <img src="../imagenes/iconos/cash-register.png" alt="" class="iconos" id="logo_user">
-                    <a href="#"><span>ventas</span></a>
+                    <a href="#" class="enlaces_menu"><span>ventas</span></a>
                 </div>
 
                 <div class="opcion_menu_p clas_relative">
                     <img src="../imagenes/iconos/invoice-text-plus.png" alt="" class="iconos" id="logo_user">
-                    <a href="#"><span>compras</span></a>
+                    <a href="#" class="enlaces_menu"><span>compras</span></a>
                 </div>
         </section>
 
 
         <section class="" id="contenedor_main">
             <div class="flex_normal_no_justify shadow p-3 mb-5 bg-white rounded">
-                <div class="form_2_componens">
-                  <img src="../imagenes/iconos/account-circle.png" alt="" class="img_usuario" id="logo_user">
+                
+                <div class="form_2_componens flex_direccion_colum bck_color border_layout">
+                  <img src="../imagenes/iconos/account-circle.png" alt="" class="img_usuario" id="logo_user_form">
+                  <input type="file" name="pic" id="pic" onchange="readURL(this.value)"/>
                 </div>
-                <form action="javascript:actualizar();" class="centrado formulario">
+
+                <form action="javascript:actualizar();" class="centrado formulario" enctype=" multipart/form-data">
                     <div class="form_2_componens">
                         <label for="txt_nombres" class="lb_form">Nombres</label>
                         <input type="text" name="txt_nombres" id="txt_nombres" class="input_form_text">
@@ -107,7 +111,10 @@
                     </div>
 
                     <br>
-                    <button class="input_form_text bt_form">Actualizar</button>
+                    <button class="input_form_text bt_form">
+                         <img src="../imagenes/iconos/account-edit.png" alt="" srcset="" class="button_img">    
+                          Actualizar
+                    </button>
                 </form>
             </div>
 

@@ -8,12 +8,14 @@
         $txt_apellidos      = $_POST['txt_apellidos'];      
         $txt_tipoid         = $_POST['txt_tipoid'];   
         $txt_identificacion = $_POST['txt_identificacion'];   
-        $txt_direccion      = $_POST['txt_direccion'];   
+        $txt_direccion      = $_POST['txt_direccion'];
+        $ruta_img           = $_POST['ruta_img'];
+           
         $accion             = $_POST['accion'];   
 
         switch ($accion) {
             case 1:
-                set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion);
+                set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion,$ruta_img);
                 break;
             
             default:
@@ -33,12 +35,13 @@ function get_user_data(){
     array_push($datos_user,$_SESSION['usuario_logeado_identificacion'] );
     array_push($datos_user,$_SESSION['usuario_logeado_direccion'] ); 
     array_push($datos_user,$_SESSION['id_personal'] ); 
+    array_push($datos_user,$_SESSION['user_img'] ); 
 
     echo json_encode($datos_user);
 }
 
 
-function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion){
+function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion,$ruta_img){
     require_once('../../ctrl/conecxion.php');
     $conn = conectar();
     // Check connection
@@ -52,6 +55,7 @@ function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identific
                           apellidos='$txt_apellidos',
                           tipoid=$txt_tipoid,
                           identificacion='$txt_identificacion',
+                          url_imagen='$ruta_img',
                           direccion='$txt_direccion'
            where id =".$_SESSION['id_personal'];
  
@@ -63,6 +67,7 @@ function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identific
              $_SESSION['usuario_logeado_tipoid']           =  $txt_tipoid ;   
              $_SESSION['usuario_logeado_identificacion']   =  $txt_identificacion ;
              $_SESSION['usuario_logeado_direccion']        =  $txt_direccion ; 
+             $_SESSION['user_img']                         =  $ruta_img ; 
              echo  'MODIFICACION REALIZADA';
          }   else {
              echo "Error Modificacion: " . $sql . "<br>" . $conn->error;

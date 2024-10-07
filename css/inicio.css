@@ -92,6 +92,7 @@ header span{
     align-items: center;
     width: 100%;
     transition: 1s;
+    text-align: center;
 }
 
 main{
@@ -166,6 +167,13 @@ main{
     background-color: var(--color_menu_2);
 }
 
-@media (max-width:1020px) {
+.button_img{
+    width: 2.5rem;
+}
 
- }
+@media (max-width:1020px) {
+    .enlaces_menu{
+        display: none;
+        transition: 2s;
+    }
+}

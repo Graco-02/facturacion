@@ -21,7 +21,6 @@ function get_validar_usuario(){
         if ($conn->connect_error) {
             $validacion=FALSE; 
             die("Connection failed: " . $conn->connect_error);
-            $conn->close();
         }else{
             $sql = "SELECT  user.id as userid,user.usuario as usuario,user.clave as clave,
             dp.nombres as nombres,dp.apellidos as apellidos,dp.url_imagen as url_img,
@@ -42,6 +41,7 @@ function get_validar_usuario(){
                         $_SESSION['usuario_logeado_identificacion'] = $row["identificacion"];
                         $_SESSION['usuario_logeado_direccion'] = $row["direccion"];
                         $_SESSION['id_personal'] = $row["id_personal"];
+                        $_SESSION['user_img'] = $row["url_img"];
                         return true;
                     } else {
                         $validacion=FALSE; 
@@ -53,9 +53,9 @@ function get_validar_usuario(){
                 echo "INCORRECTO USUARIO INEXISTENTE";
                $validacion=FALSE;
             }
-    
-            $conn->close();
         }
+
+        $conn->close();
     }
     return false;
 }
