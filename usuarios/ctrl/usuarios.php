@@ -1,6 +1,8 @@
 <?php
 
     session_start();
+    require_once('../../ctrl/conecxion.php');
+
     if(count($_GET)>0){                  
         get_user_data();
     }else if(count($_POST)>0){
@@ -17,7 +19,14 @@
             case 1:
                 set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion,$ruta_img);
                 break;
-            
+            case 2:
+                $txt_user    = $_POST['txt_usuario'];   
+                $txt_clave   = $_POST['txt_clave'];
+                $tip_user    = $_POST['txt_tipuser'];
+                set_agregar_sub_user($txt_nombres,$txt_apellidos ,$txt_tipoid,
+                 $txt_identificacion,$txt_direccion,
+                 $ruta_img,$txt_user,$txt_clave,$tip_user);
+                break;           
             default:
                 # code...
                 break;
@@ -42,7 +51,6 @@ function get_user_data(){
 
 
 function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion,$ruta_img){
-    require_once('../../ctrl/conecxion.php');
     $conn = conectar();
     // Check connection
     if ($conn->connect_error) {
@@ -72,6 +80,31 @@ function set_actualizar($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identific
          }   else {
              echo "Error Modificacion: " . $sql . "<br>" . $conn->error;
          }
+    }
+}
+
+
+function set_agregar_sub_user($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_identificacion,$txt_direccion,$ruta_img,$txt_user,$txt_clave,$tip_user){
+    $id_usuario = $_SESSION['usuario_logeado_id'];
+    $date = date('Y-m-d');
+
+    $conn = conectar();
+    $sql="INSERT INTO datos_personales (nombres,apellidos,tipoid,identificacion,direccion,url_imagen,fecha_actualizacion) 
+    VALUES ('$txt_nombres', '$txt_apellidos',$txt_tipoid,'$txt_identificacion','$txt_direccion','$ruta_img','$date')";
+
+    if ($conn->query($sql) == TRUE) {	
+        $id=$conn->insert_id;
+
+        $sql="INSERT INTO sub_usuarios (id_usuario,id_datos_personales,tipo,fecalta,fecha_actualizacion,usuario,clave) 
+        VALUES ($id_usuario, $id,$tip_user,'$date',' $date','$txt_user','$txt_clave')";
+    
+        if ($conn->query($sql) == TRUE) {	
+            echo 'CORRECTO';
+        }else{
+            echo 'AGREGADO INCORRECTO';
+        }
+    }else{
+        echo 'AGREGADO INCORRECTO';
     }
 }
 

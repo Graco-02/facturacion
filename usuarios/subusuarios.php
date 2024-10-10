@@ -131,7 +131,7 @@
 
 
             <div id="contenedor_oculto" class="display_none">
-                <form action="" class="formulario_emergente" action="javascript:actualizar();" enctype=" multipart/form-data">
+                <form class="formulario_emergente" action="javascript:set_tratar_nuevo_subuser();" enctype=" multipart/form-data">
                     <div class="felx_normal">
                         <div class="flex_column">
                             <img src="../imagenes/iconos/account-circle.png" alt="" srcset="" class="img_formulario_emergente" id="logo_user_form">
@@ -139,58 +139,61 @@
                         </div>
 
                         <div class="flex_column">
-                           <div class="felx_normal">
-                               <label for="txt_sub_user_usuario" class="lb_form">usuario</label>
-                               <input type="text" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                            <div class="felx_normal">
+                                <div class="flex_column">
+                                    <label for="txt_sub_user_usuario" class="lb_form">usuario</label>
+                                    <input type="text" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                                </div>
+
+                                <div class="flex_column">
+                                    <label for="txt_sub_user_clave" class="lb_form">clave</label>
+                                    <input type="password" name="txt_sub_user_clave" id="txt_sub_user_clave" placeholder="fulanito" class="input_form_text">
+                                </div>
                            </div>
 
-                           <div class="felx_normal">
-                               <label for="txt_sub_user_clave" class="lb_form">clave</label>
-                               <input type="password" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                            <div class="felx_normal">
+                                <div class="flex_column">
+                                    <label for="txt_sub_user_data_p_nombres" class="lb_form">nombres</label>
+                                    <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text">
+                                </div>
+   
+                                <div class="flex_column">
+                                    <label for="txt_sub_user_data_p_apeliidos" class="lb_form">apellidos</label>
+                                    <input type="text" name="txt_sub_user_data_p_apeliidos" id="txt_sub_user_data_p_apeliidos" placeholder="de tal" class="input_form_text">
+                                </div>
                            </div>
-
+   
                            <div class="felx_normal">
-                               <label for="txt_sub_user_clave" class="lb_form">tipo de usuario</label>
-                               <select name="user_tipe" id="user_tipe" class="input_form_text">
-                                   <option value="1">ADMIN</option>
-                                   <option value="2">VENTAS</option>
-                                   <option value="3">COMPRAS</option>
-                               </select>
+                                <div class="flex_column">
+                                    <select name="txt_sub_user_data_p_tipoid" id="txt_sub_user_data_p_tipoid" class="input_form_text">
+                                        <option value="0">CEDULA DE IDENTIDAD</option>
+                                        <option value="1">PASAPORTE</option>
+                                    </select>
+                                    <input type="text" name="txt_sub_user_data_p_identificacion" id="txt_sub_user_data_p_identificacion" 
+                                    class="input_form_text" placeholder="000-0000000-0">
+                                </div>
+
+                                <div class="flex_column">
+                                    <label for="user_tipe" class="lb_form">tipo de usuario</label>
+                                    <select name="user_tipe" id="user_tipe" class="input_form_text">
+                                        <option value="1">ADMIN</option>
+                                        <option value="2">VENTAS</option>
+                                        <option value="3">COMPRAS</option>
+                                    </select>
+                                 </div>
                             </div>
 
-                           <div class="felx_normal">
-                               <label for="txt_sub_user_data_p_nombres" class="lb_form">nombres</label>
-                               <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text">
-                           </div>
-   
-                           <div class="felx_normal">
-                               <label for="txt_sub_user_data_p_apeliidos" class="lb_form">apellidos</label>
-                               <input type="text" name="txt_sub_user_data_p_apeliidos" id="txt_sub_user_data_p_apeliidos" placeholder="de tal" class="input_form_text">
-                           </div>
-   
-                           <div class="felx_normal">
-                               <select name="txt_sub_user_data_p_tipoid" id="txt_sub_user_data_p_tipoid" class="input_form_text">
-                                   <option value="0">CEDULA DE IDENTIDAD</option>
-                                   <option value="1">PASAPORTE</option>
-                               </select>
-                               <input type="text" name="txt_sub_user_data_p_identificacion" id="txt_sub_user_data_p_identificacion" 
-                               class="input_form_text" placeholder="000-0000000-0">
-                           </div>
 
                            <div class="felx_normal">
                               <label for="txt_sub_user_data_p_direccion" class="lb_form">Direccion</label>
                               <textarea name="txt_sub_user_data_p_direccion" id="txt_sub_user_data_p_direccion" class="input_form_text heig_textarea"></textarea>
                            </div>
 
-                            <button id="" class="input_form_text bt_form " onclick="">  
+                            <button class="input_form_text bt_form">  
                                 <img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="button_img"> 
                                 crear   
                             </button>
 
-                            <button id="" class="input_form_text bg_color_red " onclick="set_abrir_formulario_nuevo_subuser();">  
-                                <img src="../imagenes/iconos/cerrar.png" alt="" srcset="" class="button_img"> 
-                                cerrar   
-                            </button>
 
                         </div>
 
