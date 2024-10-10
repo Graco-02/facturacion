@@ -150,6 +150,15 @@
                            </div>
 
                            <div class="felx_normal">
+                               <label for="txt_sub_user_clave" class="lb_form">tipo de usuario</label>
+                               <select name="user_tipe" id="user_tipe" class="input_form_text">
+                                   <option value="1">ADMIN</option>
+                                   <option value="2">VENTAS</option>
+                                   <option value="3">COMPRAS</option>
+                               </select>
+                            </div>
+
+                           <div class="felx_normal">
                                <label for="txt_sub_user_data_p_nombres" class="lb_form">nombres</label>
                                <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text">
                            </div>
