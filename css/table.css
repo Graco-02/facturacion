@@ -1,0 +1,36 @@
+#contenedor_controles_tabla{
+    padding: 2rem;
+    background-color: var(--color_menu_3);
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+}
+
+thead{
+    background-color: var(--color_secundario);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 0 5px black;
+}
+
+tbody{
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+tbody tr:hover{
+    background-color: var(--color_menu_3);
+}
+
+.incono_bt_tabla{
+    width: 1rem;
+}
+
+.bt_opcion_tabla{
+    border-radius: 50%;
+}
+
+.felx_normal{
+    display: flex;
+    gap: 0.5rem;
+}

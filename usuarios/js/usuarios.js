@@ -112,3 +112,12 @@ function readURL(input) {
   // Y a la fuente de la imagen le ponemos el objectURL
   $imagenPrevisualizacion.src = objectURL;
 }
+
+
+function set_abrir_formulario_nuevo_subuser(){
+  document.getElementById('contenedor_oculto').classList.toggle('display_none');
+}
+
+function set_tratar_nuevo_bususer(){
+  
+}

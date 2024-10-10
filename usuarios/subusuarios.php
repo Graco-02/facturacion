@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/table.css">
     <link rel="stylesheet" href="css/subuser.css">
     <link rel="stylesheet" href="css/usuarios.css">
 
@@ -86,8 +87,12 @@
 
 
         <section class="contenedor_main" id="">
+            <div id="contenedor_controles_tabla" class="width_100">
+
+            </div>
+
             <div class="width_100" id="divicion_formulario">
-                <table class="table table-striped  table-hover table-bordered justy_center">
+                <table class="width_100">
                     <thead id="" class="bbk_color_1">
                         <tr>
                             <th scope="col">usuario</th>
@@ -101,13 +106,99 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td> </td>
+                        <td><div class="felx_normal"> 
+                            <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-eye.png" alt="" srcset="" class="incono_bt_tabla"></button>
+                            <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-multiple-remove.png" alt="" srcset="" class="incono_bt_tabla"></button>
+                        </div></td>
                       </tr>
+
+                      <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td><div class="felx_normal"> 
+                            <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-eye.png" alt="" srcset="" class="incono_bt_tabla"></button>
+                            <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-multiple-remove.png" alt="" srcset="" class="incono_bt_tabla"></button>
+                        </div></td>
+                      </tr>
+
                     </tbody>
                 </table>
             </div>
 
+            <button class="bt_opcion_flotable" onclick="set_abrir_formulario_nuevo_subuser();"><img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="icono_bt_flotable"></button>
+            
+
+
+            <div id="contenedor_oculto" class="display_none">
+                <form action="" class="formulario_emergente" action="javascript:actualizar();" enctype=" multipart/form-data">
+                    <div class="felx_normal">
+                        <div class="flex_column">
+                            <img src="../imagenes/iconos/account-circle.png" alt="" srcset="" class="img_formulario_emergente" id="logo_user_form">
+                            <input type="file" name="pic" id="pic" onchange="readURL(this.value)"/>
+                        </div>
+
+                        <div class="flex_column">
+                           <div class="felx_normal">
+                               <label for="txt_sub_user_usuario" class="lb_form">usuario</label>
+                               <input type="text" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                           </div>
+
+                           <div class="felx_normal">
+                               <label for="txt_sub_user_clave" class="lb_form">clave</label>
+                               <input type="password" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                           </div>
+
+                           <div class="felx_normal">
+                               <label for="txt_sub_user_data_p_nombres" class="lb_form">nombres</label>
+                               <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text">
+                           </div>
+   
+                           <div class="felx_normal">
+                               <label for="txt_sub_user_data_p_apeliidos" class="lb_form">apellidos</label>
+                               <input type="text" name="txt_sub_user_data_p_apeliidos" id="txt_sub_user_data_p_apeliidos" placeholder="de tal" class="input_form_text">
+                           </div>
+   
+                           <div class="felx_normal">
+                               <select name="txt_sub_user_data_p_tipoid" id="txt_sub_user_data_p_tipoid" class="input_form_text">
+                                   <option value="0">CEDULA DE IDENTIDAD</option>
+                                   <option value="1">PASAPORTE</option>
+                               </select>
+                               <input type="text" name="txt_sub_user_data_p_identificacion" id="txt_sub_user_data_p_identificacion" 
+                               class="input_form_text" placeholder="000-0000000-0">
+                           </div>
+
+                           <div class="felx_normal">
+                              <label for="txt_sub_user_data_p_direccion" class="lb_form">Direccion</label>
+                              <textarea name="txt_sub_user_data_p_direccion" id="txt_sub_user_data_p_direccion" class="input_form_text heig_textarea"></textarea>
+                           </div>
+
+                            <button id="" class="input_form_text bt_form " onclick="">  
+                                <img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="button_img"> 
+                                crear   
+                            </button>
+
+                            <button id="" class="input_form_text bg_color_red " onclick="set_abrir_formulario_nuevo_subuser();">  
+                                <img src="../imagenes/iconos/cerrar.png" alt="" srcset="" class="button_img"> 
+                                cerrar   
+                            </button>
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
         </section>
+
+           
+
     </main>
     <footer></footer>
     <script>set_datos_usuario();</script>

@@ -1,5 +1,16 @@
+:root{
+    --color_primario:rgb(237, 241, 157);
+    --color_secundario:rgb(217, 213, 12);
+    --color_menu:rgb(129, 127, 5);
+    --color_menu_2:rgb(89, 88, 4);
+    --color_menu_3:rgb(225, 223, 110);
+}
+
+
 .contenedor_main{
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .width_100{
@@ -12,4 +23,78 @@ thead{
 
 tr{
     text-align: center;
+}
+
+.contenedor_main{
+    position: relative;
+}
+
+.icono_bt_flotable{
+    width: 3.5rem;
+    background-color: var(--color_menu);
+    border-radius: 50%;
+}
+
+.bt_opcion_flotable{
+    position: absolute;
+    top: 90%;
+    left: 85%;
+    border-radius: 50%;
+}
+
+#contenedor_oculto{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    background-color:var(--color_primario);
+    box-shadow: 0 0 5px black;
+}
+
+.display_none{
+    display: none;
+}
+
+.img_formulario_emergente{
+    width: 8rem;
+}
+
+.formulario_emergente{
+    margin: 1rem;
+}
+
+.flex_column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.bg_color_red{
+    background-color: red;
+}
+
+.lb_form{
+    text-transform: uppercase;
+}
+
+@media (max-width:600px) {
+    #contenedor_oculto{
+        top: -10%;
+        left: -5%;
+        width: 100%;
+    }
+
+    .felx_normal{
+        flex-direction: column;
+    }
+
+    main{
+        height: 300vh;
+    }
+
+    .bt_opcion_flotable{
+        left: 75%;
+    }
 }
