@@ -26,7 +26,10 @@
                 set_agregar_sub_user($txt_nombres,$txt_apellidos ,$txt_tipoid,
                  $txt_identificacion,$txt_direccion,
                  $ruta_img,$txt_user,$txt_clave,$tip_user);
-                break;           
+                break; 
+            case 3:
+                get_listado_sub_usuarios();
+                break;              
             default:
                 # code...
                 break;
@@ -106,6 +109,51 @@ function set_agregar_sub_user($txt_nombres,$txt_apellidos ,$txt_tipoid, $txt_ide
     }else{
         echo 'AGREGADO INCORRECTO';
     }
+}
+
+function get_listado_sub_usuarios(){
+    $id_usuario = $_SESSION['usuario_logeado_id'];
+
+    $sql = "SELECT sub_user.id AS sb_id,sub_user.usuario AS sb_user,sub_user.clave AS sb_clave,
+                   sub_user.estado AS sb_estado ,sub_user.tipo AS sb_tipo,
+                   dp.nombres AS dp_name,dp.apellidos AS dp_apellidos,dp.tipoid AS dp_tipoid,dp.identificacion AS dp_identificacion,
+                   dp.direccion AS dp_direccion, dp.url_imagen AS dp_url_foto
+            FROM facturacion.sub_usuarios sub_user , facturacion.usuarios users , facturacion.datos_personales dp
+            WHERE users.id = $id_usuario AND sub_user.id_usuario = users.id AND sub_user.id_datos_personales = dp.id;
+            ";
+
+    $conn = conectar();
+    $date = date('Y-m-d');
+    $listado_sub_users = array(); 
+      // Check connection
+     if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+          echo "error de coneccion bbdd";
+     }else{
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc() ) {
+            $sub_user = array();
+            array_push($sub_user,$row["sb_id"]);
+            array_push($sub_user,$row["sb_user"]);
+            array_push($sub_user,$row["sb_clave"]);
+            array_push($sub_user,$row["sb_estado"]);
+            array_push($sub_user,$row["sb_tipo"]);
+            array_push($sub_user,$row["dp_name"]);
+            array_push($sub_user,$row["dp_apellidos"]);
+            array_push($sub_user,$row["dp_tipoid"]);
+            array_push($sub_user,$row["dp_identificacion"]);
+            array_push($sub_user,$row["dp_direccion"]);
+            array_push($sub_user,$row["dp_url_foto"]);
+
+
+            array_push($listado_sub_users,$sub_user);
+          }//fin bucle while		 
+        }//fin if
+     }
+
+    echo json_encode($listado_sub_users);
+
 }
 
 ?>

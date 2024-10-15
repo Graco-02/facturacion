@@ -87,9 +87,9 @@
 
 
         <section class="contenedor_main" id="">
-            <div id="contenedor_controles_tabla" class="width_100">
+         <!--   <div id="contenedor_controles_tabla" class="width_100">
 
-            </div>
+            </div> -->
 
             <div class="width_100" id="divicion_formulario">
                 <table class="width_100">
@@ -101,8 +101,8 @@
                             <th scope="col">acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="" class="width_100">
-                      <tr>
+                    <tbody id="cuerpo_tabla" class="width_100">
+                    <!--  <tr>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -120,19 +120,16 @@
                             <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-eye.png" alt="" srcset="" class="incono_bt_tabla"></button>
                             <button class="bt_opcion_tabla"><img src="../imagenes/iconos/account-multiple-remove.png" alt="" srcset="" class="incono_bt_tabla"></button>
                         </div></td>
-                      </tr>
-
+                      </tr> -->
                     </tbody>
                 </table>
             </div>
 
-            <button class="bt_opcion_flotable" onclick="set_abrir_formulario_nuevo_subuser();"><img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="icono_bt_flotable"></button>
+            <button class="bt_opcion_flotable" onclick="set_abrir_formulario_nuevo_subuser();"><img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="icono_bt_flotable" id="img_bt_abrir_formulario"></button>
             
-
-
             <div id="contenedor_oculto" class="display_none">
                 <form class="formulario_emergente" action="javascript:set_tratar_nuevo_subuser();" enctype=" multipart/form-data">
-                    <div class="felx_normal">
+                    <div class="contenedor_formulario_flex">
                         <div class="flex_column">
                             <img src="../imagenes/iconos/account-circle.png" alt="" srcset="" class="img_formulario_emergente" id="logo_user_form">
                             <input type="file" name="pic" id="pic" onchange="readURL(this.value)"/>
@@ -142,19 +139,19 @@
                             <div class="felx_normal">
                                 <div class="flex_column">
                                     <label for="txt_sub_user_usuario" class="lb_form">usuario</label>
-                                    <input type="text" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text">
+                                    <input type="text" name="txt_sub_user_usuario" id="txt_sub_user_usuario" placeholder="fulanito" class="input_form_text" required>
                                 </div>
 
                                 <div class="flex_column">
                                     <label for="txt_sub_user_clave" class="lb_form">clave</label>
-                                    <input type="password" name="txt_sub_user_clave" id="txt_sub_user_clave" placeholder="fulanito" class="input_form_text">
+                                    <input type="password" name="txt_sub_user_clave" id="txt_sub_user_clave" placeholder="fulanito" class="input_form_text" required>
                                 </div>
                            </div>
 
                             <div class="felx_normal">
                                 <div class="flex_column">
                                     <label for="txt_sub_user_data_p_nombres" class="lb_form">nombres</label>
-                                    <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text">
+                                    <input type="text" name="txt_sub_user_data_p_nombres" id="txt_sub_user_data_p_nombres" placeholder="fulanito" class="input_form_text" required>
                                 </div>
    
                                 <div class="flex_column">
@@ -175,7 +172,7 @@
 
                                 <div class="flex_column">
                                     <label for="user_tipe" class="lb_form">tipo de usuario</label>
-                                    <select name="user_tipe" id="user_tipe" class="input_form_text">
+                                    <select name="user_tipe" id="user_tipe" class="input_form_text" required>
                                         <option value="1">ADMIN</option>
                                         <option value="2">VENTAS</option>
                                         <option value="3">COMPRAS</option>
@@ -202,17 +199,11 @@
                 </form>
             </div>
 
-
-
-
-
-
         </section>
 
            
-
     </main>
     <footer></footer>
-    <script>set_datos_usuario();</script>
+    <script>set_datos_usuario();  get_listado_sub_usuarios();</script>
 </body>
 </html>
