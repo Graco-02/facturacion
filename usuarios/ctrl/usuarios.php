@@ -29,7 +29,12 @@
                 break; 
             case 3:
                 get_listado_sub_usuarios();
-                break;              
+                break;      
+            case 4:
+                $id_sub_user = $_POST['id_sub_user'];
+                $sb_estado   = $_POST['sb_estado'];
+                set_desactivar_activar($sb_estado,$id_sub_user);
+                break;                        
             default:
                 # code...
                 break;
@@ -154,6 +159,28 @@ function get_listado_sub_usuarios(){
 
     echo json_encode($listado_sub_users);
 
+}
+
+function set_desactivar_activar($indicador,$id){
+    $estado = $indicador;
+    $conn = conectar();
+    // Check connection
+    if ($conn->connect_error) {
+        $validacion=FALSE; 
+        die("Connection failed: " . $conn->connect_error);
+        $conn->close();
+        echo 'error en coneccion bbdd';
+    }else{
+        $sql="UPDATE sub_usuarios SET estado=".$estado." where id =".$id;
+ 
+        if ($conn->query($sql) == TRUE) {		   
+         // # Cogemos el identificador con que se ha guardado
+             $id=$conn->insert_id;	
+             echo  'CORRECTO';
+         }   else {
+             echo "Error Modificacion: " . $sql . "<br>" . $conn->error;
+         }
+    }//fin del else
 }
 
 ?>

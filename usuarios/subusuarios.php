@@ -187,8 +187,8 @@
                            </div>
 
                             <button class="input_form_text bt_form">  
-                                <img src="../imagenes/iconos/account-box-plus-outline.png" alt="" srcset="" class="button_img"> 
-                                crear   
+                                <img src="../imagenes/iconos/account-box-plus-outline.png" id="button_image" alt="" srcset="" class="button_img"> 
+                                   
                             </button>
 
 

@@ -132,7 +132,8 @@ function set_abrir_formulario_nuevo_subuser(){
     document.getElementById('img_bt_abrir_formulario').src='../imagenes/iconos/account-box-plus-outline.png';
     abierto=false;
   }
-
+  $button_image = document.querySelector("#button_image");
+  $button_image.src='../imagenes/iconos/account-box-plus-outline.png';
   document.getElementById('contenedor_oculto').classList.toggle('display_none');
 }
 
@@ -149,7 +150,7 @@ function set_tratar_nuevo_subuser(){
 
 function set_agregar_subuser(txt_nombres,txt_apellidos,txt_tipoid,txt_identificacion,txt_direccion,ruta,txt_usuario,txt_clave,txt_tipuser){ 
    //inicio 
-   console.log('set_agregar_subuser');
+ //  console.log('set_agregar_subuser');
    $.post("ctrl/usuarios.php"
      ,{
          "txt_nombres":txt_nombres
@@ -195,7 +196,7 @@ function set_cargar_datos_tabla(json){
       data_identificacion.innerHTML=json[i][8];
 
 
-      var estado = Number(json[i][3]);
+      var estado = Number(json[i][3]);//valido el estado para indicar cual seria el label
       switch (estado) {
         case 1:
           data_estado.innerHTML='Inactivo';
@@ -218,9 +219,16 @@ function set_cargar_datos_tabla(json){
       bts_ver.onclick = function() {  bt_ver_onclick(data_user_all); };
 
       var bts_borrar = document.createElement('button');
-      bts_borrar.innerHTML='<img src="../imagenes/iconos/account-multiple-remove.png" alt="" srcset="" class="incono_bt_tabla">';
       bts_borrar.classList.toggle('bt_opcion_tabla');
-      bts_borrar.onclick = function() {  bt_borrar_onclick(data_user_all); };
+      if(estado==0){
+        bts_borrar.innerHTML='<img src="../imagenes/iconos/account-multiple-remove.png" alt="" srcset="" class="incono_bt_tabla">';
+      }else{     
+         bts_borrar.innerHTML='<img src="../imagenes/iconos/account-badge-outline.png" alt="" srcset="" class="incono_bt_tabla">';
+         bts_borrar.classList.toggle('bck_color_green');
+      }
+
+
+      bts_borrar.onclick = function() {  bt_activarDesactivar_onclick(data_user_all); };
  
       //agrego los botones a la celda
       celda_bts.appendChild(bts_ver);
@@ -293,6 +301,8 @@ function bt_ver_onclick(json){
 
 
   $imagenPrevisualizacion = document.querySelector("#logo_user_form");
+  $button_image = document.querySelector("#button_image");
+
 
   if(dp_url_foto.length > 0 && dp_url_foto!=null ){
     $imagenPrevisualizacion.src =  '../'+dp_url_foto;
@@ -300,8 +310,42 @@ function bt_ver_onclick(json){
   }
 
   set_abrir_formulario_nuevo_subuser();
+  $button_image.src='../imagenes/iconos/account-box-edit-outline.png';
 }
 
-function bt_borrar_onclick(json){
+function bt_activarDesactivar_onclick(json){
   console.log(json);
+  var sb_id             = json[0];
+  var sb_estado         = Number(json[3]);
+
+  if(sb_estado==0){
+    sb_estado =1;
+  }else{
+    sb_estado =0;
+  }
+
+  $.post("ctrl/usuarios.php"
+    ,{
+        "txt_nombres":' '
+       , "txt_apellidos":' '
+       , "txt_tipoid":' ' 
+       , "txt_identificacion":' ' 
+       , "txt_direccion": ' '
+       , "ruta_img": ' '
+       , "txt_usuario": ' '
+       , "txt_clave": ' '
+       , "txt_tipuser": ' '
+       , "id_sub_user": sb_id
+       , "sb_estado": sb_estado
+       , "accion": 4
+    }
+    ,function(respuesta){            
+        try {
+          console.log(respuesta);
+        } catch (error) {
+          console.log(error);
+          console.log(respuesta);
+        }
+        get_listado_sub_usuarios();//listo nueva vez 
+    }); 
 }

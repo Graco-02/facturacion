@@ -71,6 +71,10 @@ tr{
     width: 100%;
 }
 
+.bck_color_green{
+    background-color: green;
+}
+
 .contenedor_formulario_flex{
     display: flex;
 }
